@@ -37,7 +37,6 @@ public class SecurityController {
             return "registration";
         }
         else{
-            //User Roles assigned here
             userService.saveUser(user);
             model.addAttribute("message", "User Account Created");
         }

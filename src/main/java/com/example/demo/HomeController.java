@@ -31,9 +31,12 @@ public class HomeController {
 
     //Home
     @RequestMapping("/")
-    public String index(Principal principal, Model model){
+    public String index(Model model){
         model.addAttribute("messages", messageRepository.findAll());
         model.addAttribute("user", userRepository.findAll());
+        if(userService.getUser() != null) {
+            model.addAttribute("user", userService.getUser());
+          }
         return "index";
     }
 
@@ -49,9 +52,10 @@ public class HomeController {
             return "messageForm";
         }
         messageRepository.save(bullhorn);
-        Set<Bullhorn> messages = new HashSet<Bullhorn>();
-        messages.add(bullhorn);
-        user.setMessages(messages);
+//        Set<Bullhorn> messages = new HashSet<Bullhorn>();
+//        messages.add(bullhorn);
+//        user.setMessages(messages);
+//        userRepository.save(user);
         return "redirect:/";
     }
 

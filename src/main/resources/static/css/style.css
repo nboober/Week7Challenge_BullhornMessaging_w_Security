@@ -51,6 +51,10 @@ form p{
     width: 70%;
 }
 
+.card img{
+    width: 100%;
+}
+
 .width-70{
     width:70%;
 }

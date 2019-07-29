@@ -52,4 +52,12 @@ public class UserService {
         userRepository.save(user);
     }
 
+    // returns currently logged in user
+    public User getUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentusername = authentication.getName();
+        User user = userRepository.findByUsername(currentusername);
+        return user;
+    }
+
 }
