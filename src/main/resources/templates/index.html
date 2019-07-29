@@ -7,8 +7,9 @@
 
 <!--Logged In Mini Profile Start-->
 <div sec:authorize="isAuthenticated()" class="card float-left" style="width: 18rem;">
-    <img th:if="${user.image == ''}" th:src="https://res.cloudinary.com/dmfaehjot/image/upload/v1564415256/Week7Challenge/noimage_hvn1ru.jpg" alt="No image available"/>
-    <img th:unless="${user.image == ''}" th:src="${user.image}" class="card-img-top" alt="User profile image">
+<!--    <img th:if="${user.image == ''}" th:src="https://res.cloudinary.com/dmfaehjot/image/upload/v1564415256/Week7Challenge/noimage_hvn1ru.jpg" alt="No image available"/>-->
+<!--    <img th:unless="${user.image == ''}" th:src="${user.image}" class="card-img-top" alt="User profile image">-->
+    <img src="https://res.cloudinary.com/dmfaehjot/image/upload/v1564415256/Week7Challenge/noimage_hvn1ru.jpg" class="card-img-top" alt="User profile image">
     <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>

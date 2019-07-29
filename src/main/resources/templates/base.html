@@ -21,7 +21,7 @@
         <span class="fancy-writing">Bullhorn w/ Security</span>
     </a>
 
-    <h4 sec:authorize="isAuthenticated()" th:inline="text">Welcome [[${#authentication.name}]]!</h4>
+    <h4 sec:authorize="isAuthenticated()" th:inline="text">Welcome <a href="/userProfile">[[${#authentication.name}]]</a>!</h4>
     <h4 sec:authorize="!isAuthenticated()">Welcome! Please Sign In</h4>
 
 
