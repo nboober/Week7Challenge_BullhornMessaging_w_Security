@@ -20,14 +20,19 @@
         <img src="https://res.cloudinary.com/dmfaehjot/image/upload/v1564408437/Week7Challenge/19570_cfotpp_ae9vdw.jpg" width="auto" height="50" class="d-inline-block align-top" alt="Bull Image">
         <span class="fancy-writing">Bullhorn w/ Security</span>
     </a>
-    <!--If the user is logged in this link will be visible-->
-    <a sec:authorize="isAuthenticated()" href="#">Ur Logged In</a>
 
-    <!--The user needs a certain role to see this link (USER)-->
-    <a sec:authorize="hasAuthority('USER')" href="#">USER Eyes Only</a>
+    <!--The user needs a certain role to see this link (ADMIN)-->
     <a sec:authorize="hasAuthority('ADMIN')" href="/admin">ADMIN Eyes Only</a>
+
     <a href="/register">Register</a>
-    <a sec:authorize="!isAuthenticated()" href="/Login">Login</a>
+
+    <!--If the user is not logged in this link will be visible-->
+    <a sec:authorize="!isAuthenticated()" href="/login">Login</a>
+
+    <!--If the user is logged in this link will be visible-->
+    <a sec:authorize="isAuthenticated()" href="/logout">Logout</a>
+
+    <a sec:authorize="isAuthenticated()" href="/add"><img width="35px" src="https://res.cloudinary.com/dmfaehjot/image/upload/v1564408416/Week7Challenge/kiKorAroT_igopgw_xo8qv7.jpg" alt="add image"/></a>
 </nav>
 <!--End of Nav Bar-->
 
