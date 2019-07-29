@@ -48,6 +48,15 @@ form p{
 
 .card{
     margin: 10px;
+    width: 70%;
+}
+
+.width-70{
+    width:70%;
+}
+
+width-15{
+    width: 15%;
 }
 
 .side-by-side{
