@@ -16,6 +16,19 @@ body{
     float: right;
 }
 
+a{
+    color: black;
+}
+
+a:hover{
+    color: red;
+    text-decoration: none;
+}
+
+a:visited{
+    color: black;
+}
+
 form{
     margin: 20px;
     background-color: aliceblue;
