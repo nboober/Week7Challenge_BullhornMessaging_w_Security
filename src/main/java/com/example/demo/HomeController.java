@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.naming.Binding;
 import javax.validation.Valid;
+import java.util.HashSet;
+import java.util.Set;
+import java.security.Principal;
+
 
 @Controller
 public class HomeController {
@@ -27,8 +31,9 @@ public class HomeController {
 
     //Home
     @RequestMapping("/")
-    public String index(Model model){
+    public String index(Principal principal, Model model){
         model.addAttribute("messages", messageRepository.findAll());
+        model.addAttribute("user", userRepository.findAll());
         return "index";
     }
 
@@ -39,12 +44,14 @@ public class HomeController {
     }
 
     @PostMapping("/process")
-    public String processMessage(@Valid Bullhorn bullhorn, BindingResult result, Model model){
+    public String processMessage(@Valid Bullhorn bullhorn, @ModelAttribute("user") User user, BindingResult result, Model model){
         if(result.hasErrors()){
             return "messageForm";
         }
-//        model.addAttribute("bullhorn", bullhorn);
         messageRepository.save(bullhorn);
+        Set<Bullhorn> messages = new HashSet<Bullhorn>();
+        messages.add(bullhorn);
+        user.setMessages(messages);
         return "redirect:/";
     }
 

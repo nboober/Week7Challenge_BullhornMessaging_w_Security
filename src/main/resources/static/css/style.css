@@ -1,9 +1,19 @@
 .fancy-writing{
     font-family: 'Saira Stencil One', cursive;
+    font-size: 35px;
 }
 
 body{
     background-color: aqua;
+}
+
+.float-left{
+    float: left;
+    height: 100%;
+}
+
+.float-right{
+    float: right;
 }
 
 form{

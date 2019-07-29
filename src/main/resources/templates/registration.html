@@ -59,6 +59,17 @@
     </mark>
     <input type="text" id="password" placeholder="Password" th:field="*{password}"/><br/>
 
+    Profile Image
+    <mark>
+        <strong>
+                <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}">
+                    Image URL Error
+                </span>
+        </strong>
+    </mark>
+    <input type="text" id="image" placeholder="Image URL" th:field="*{image}"/><br/>
+
+
     <button type="submit" class="btn btn-default">Submit</button>
 
 </form>
