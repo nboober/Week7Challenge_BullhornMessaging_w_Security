@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--My Css-->
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -24,7 +26,7 @@
     <!--The user needs a certain role to see this link (USER)-->
     <a sec:authorize="hasAuthority('USER')" href="#">USER Eyes Only</a>
     <a sec:authorize="hasAuthority('ADMIN')" href="/admin">ADMIN Eyes Only</a>
-    <a href="#">Link</a>
+    <a href="/register">Register</a>
     <a sec:authorize="!isAuthenticated()" href="/Login">Login</a>
 </nav>
 <!--End of Nav Bar-->
