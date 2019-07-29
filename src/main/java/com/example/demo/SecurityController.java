@@ -68,4 +68,31 @@ public class SecurityController {
         return "userProfile";
     }
 
+    @RequestMapping("/updateUser/{id}")
+    public String updateUser(@PathVariable("id") long id, Model model){
+        model.addAttribute("roles", roleRepository.findAll());
+        model.addAttribute("user", userRepository.findById(id).get());
+        return "updateUser";
+    }
+
+    @PostMapping("/processUser")
+    public String processUpdates(@Valid @ModelAttribute("user") User user, BindingResult result, Model model){
+
+        model.addAttribute("user", user);
+        if(result.hasErrors()){
+            return "updateUser";
+        }
+
+        userService.saveUser(user);
+        return "redirect:/";
+    }
+
+    @RequestMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable("id") long id, Model model){
+        userRepository.deleteById(id);
+        model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("roles", roleRepository.findAll());
+        return "admin";
+    }
+
 }

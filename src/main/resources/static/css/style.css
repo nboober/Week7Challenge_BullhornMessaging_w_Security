@@ -1,3 +1,28 @@
 body{
-    background-color: lightskyblue;
+    background-color: aqua;
+}
+
+form{
+    margin: 20px;
+    background-color: aliceblue;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border: 0px solid #000000;
+}
+
+form *{
+    margin: 10px;
+}
+
+form p{
+    color: red;
+}
+
+.card{
+    margin: 10px;
+}
+
+.side-by-side{
+    display: inline-block;
 }

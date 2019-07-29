@@ -1,22 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="base :: head"></head>
 <body>
 <nav th:replace="base :: navbar"></nav>
 
-    <p th:text="${message}"></p>
+<!--Message Cards Start-->
+<div class="card" th:each="bullhorn : ${messages}">
+    <div class="card-header" th:text="${bullhorn.title}"></div>
+    <div class="card-body" >
+        <blockquote class="blockquote mb-0">
+            <p th:text="${bullhorn.content}"></p>
+            <img width="25%" th:src="${bullhorn.image}"/>
+            <footer>
+                <p class="blockquote-footer">
 
-    <p sec:authorize="isAuthenticated()">
-        Welcome <span th:text="${#authentication.name}"></span> <!--only show when authenticated-->
-    </p>
-
-    <p>
-        Welcome <span sec:authentication="name"></span> <!--shows name regardless of anonymity-->
-    </p>
-
-    <h2>Insecure Page</h2>
-    <a href="/userProfile">View Profile</a>
+                    Posted By:
+                    <span th:if="${bullhorn.postedBy == ''}">Anonymous</span>
+                    <span th:unless="${bullhorn.postedBy == ''}" th:text="${bullhorn.postedBy}" ></span>
+                    on
+                    <span th:text="${bullhorn.postedDate}"></span>
+                </p>
+            </footer>
+        </blockquote>
+    </div>
+    <hr/>
+    <div>
+        <a class="side-by-side" th:href="@{/update/{id}(id=${bullhorn.id})}">Update</a>
+        <a class="side-by-side" th:href="@{/detail/{id}(id=${bullhorn.id})}">Details</a>
+        <a class="side-by-side" th:href="@{/delete/{id}(id=${bullhorn.id})}">Delete</a>
+    </div>
+</div>
+<!--Message Cards end-->
 
 <div th:replace="base :: javascript"></div>
 </body>

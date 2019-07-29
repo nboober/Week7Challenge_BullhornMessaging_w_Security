@@ -21,41 +21,50 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    MessageRepository messageRepository;
+
+
     //Home
     @RequestMapping("/")
-    public String index(){
+    public String index(Model model){
+        model.addAttribute("messages", messageRepository.findAll());
         return "index";
     }
 
-    @RequestMapping("/update/{id}")
-    public String updateUser(@PathVariable("id") long id, Model model){
-        model.addAttribute("roles", roleRepository.findAll());
-        model.addAttribute("user", userRepository.findById(id).get());
-        return "updateUser";
+    @GetMapping("/add")
+    public String newMessage(Model model){
+        model.addAttribute("bullhorn", new Bullhorn());
+        return "messageForm";
     }
 
     @PostMapping("/process")
-    public String processUpdates(@Valid @ModelAttribute("user") User user, BindingResult result, Model model){
-
-        model.addAttribute("user", user);
+    public String processMessage(@Valid Bullhorn bullhorn, BindingResult result, Model model){
         if(result.hasErrors()){
-            return "updateUser";
+            return "messageForm";
         }
-
-        userService.saveUser(user);
+//        model.addAttribute("bullhorn", bullhorn);
+        messageRepository.save(bullhorn);
         return "redirect:/";
     }
 
-    @RequestMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") long id, Model model){
-        userRepository.deleteById(id);
-        model.addAttribute("users", userRepository.findAll());
-        model.addAttribute("roles", roleRepository.findAll());
-        return "admin";
+    @RequestMapping("/update/{id}")
+    public String updateMessage(@PathVariable("id") long id, Model model){
+        model.addAttribute("bullhorn", messageRepository.findById(id).get());
+        return "messageForm";
     }
 
+    @RequestMapping("/detail/{id}")
+    public String viewMessage(@PathVariable("id") long id, Model model){
+        model.addAttribute("bullhorn", messageRepository.findById(id).get());
+        return "viewMessage";
+    }
 
-
+    @RequestMapping("/delete/{id}")
+    public String deleteMessage(@PathVariable("id") long id){
+        messageRepository.deleteById(id);
+        return "redirect:/";
+    }
 
 
 

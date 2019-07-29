@@ -4,7 +4,7 @@
 <head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+    <title>Bullhorn w/ Security</title>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--My Css-->
@@ -13,10 +13,10 @@
 <body>
 
 <!-- Image and text Nav Bar-->
-<nav class="navbar navbar-dark bg-dark" th:fragment="navbar">
+<nav class="navbar navbar-light bg-light" th:fragment="navbar">
     <a class="navbar-brand" href="/">
-        <img src="#" width="auto" height="50" class="d-inline-block align-top" alt="image">
-        <span class="fancy-writing">Nav Title</span>
+        <img src="https://res.cloudinary.com/dmfaehjot/image/upload/v1564408437/Week7Challenge/19570_cfotpp_ae9vdw.jpg" width="auto" height="50" class="d-inline-block align-top" alt="Bull Image">
+        <span class="fancy-writing">Bullhorn w/ Security</span>
     </a>
     <!--If the user is logged in this link will be visible-->
     <a sec:authorize="isAuthenticated()" href="#">Ur Logged In</a>
