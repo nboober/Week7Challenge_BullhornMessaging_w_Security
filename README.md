@@ -1,6 +1,8 @@
 **Week Seven Challenge - Bullhorn Messaging App with Security**
 
-A working version of the app: https://shielded-brushlands-23516.herokuapp.com/ (Links to an external site.)
+**My Heroku App Link**
+
+https://guarded-peak-99369.herokuapp.com/
 
 You are to write an application that is kind of like Twitter. It will allow a user to post a message, and everyone else to see all the messages that have been posted. 
 
