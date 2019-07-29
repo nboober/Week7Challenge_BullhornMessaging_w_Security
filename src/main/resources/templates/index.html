@@ -7,7 +7,7 @@
 
 
 <!--Logged In Mini Profile Start-->
-<div sec:authorize="isAuthenticated()" class="card float-left" style="width: 20%; height:40%; position:fixed">
+<div sec:authorize="isAuthenticated()" class="card float-left" style="width: 20%; height:80%; position:fixed">
     <img th:if="${user.getImage() == ''}" src="https://res.cloudinary.com/dmfaehjot/image/upload/v1564415256/Week7Challenge/noimage_hvn1ru.jpg" alt="No image available"/>
     <img th:unless="${user.getImage() == ''}" th:src="${user.getImage()}" class="card-img-top" alt="Image Not Available">
 <!--    <img src="https://res.cloudinary.com/dmfaehjot/image/upload/v1564415256/Week7Challenge/noimage_hvn1ru.jpg" class="card-img-top" alt="User profile image">-->
@@ -22,6 +22,9 @@
         <p class="card-text" th:inline="text">
             <b>Username: </b>[[${user.getUsername()}]]
         </p>
+        <a class="card-text" href="/userProfile" th:inline="text">
+            View/ Update My Profile
+        </a>
     </div>
 </div>
 <!--Logged in Mini Profile End-->
@@ -38,7 +41,7 @@
                 <p class="blockquote-footer">
 
                     Posted By:
-<!--                    <span th:if="${bullhorn.postedBy == ''}">Anonymous</span>-->
+                    <span th:if="${bullhorn.postedBy == ''}">Anonymous</span>
                     <span th:unless="${bullhorn.postedBy == ''}" th:text="${bullhorn.postedBy}" ></span>
                     on
                     <span th:text="${bullhorn.postedDate}"></span>
