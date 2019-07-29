@@ -1,5 +1,8 @@
 package com.example.demo;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -66,6 +69,7 @@ public class Bullhorn {
         Date today = Calendar.getInstance().getTime();
 
         String date = today.toString();
+
 
         return date;
     }
