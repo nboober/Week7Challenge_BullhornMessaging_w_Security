@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head th:replace="base :: head"></head>
+<body>
+<nav th:replace="base :: navbar"></nav>
+
+    <p th:text="${message}"></p>
+
+    <p sec:authorize="isAuthenticated()">
+        Welcome <span th:text="${#authentication.name}"></span> <!--only show when authenticated-->
+    </p>
+
+    <p>
+        Welcome <span sec:authentication="name"></span> <!--shows name regardless of anonymity-->
+    </p>
+
+    <h2>Insecure Page</h2>
+    <a href="/userProfile">View Profile</a>
+
+<div th:replace="base :: javascript"></div>
+</body>
+</html>
