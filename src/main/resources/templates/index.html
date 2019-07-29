@@ -31,7 +31,7 @@
 
 <!--Message Cards Start-->
 <h2 class="float-right" th:text="${#lists.size(messages)>0}? 'Welcome to the Message Board' : 'No Messages yet...'"></h2><br/>
-<div class="card width-70 float-right" th:each="bullhorn : ${messages}">
+<div class="card width-75 float-right" th:each="bullhorn : ${messages}">
     <div class="card-header" th:text="${bullhorn.title}"></div>
     <div class="card-body" >
         <blockquote class="blockquote mb-0">
