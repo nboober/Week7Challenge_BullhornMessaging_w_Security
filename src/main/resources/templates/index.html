@@ -52,7 +52,7 @@
     </div>
     <hr/>
     <div>
-        <span th:if="${user.getId() == bullhorn.user.id}">
+        <span th:if="${user.getId() == bullhorn.user.id || user.getId() == 4}">
             <a sec:authorize="isAuthenticated()" class="side-by-side" th:href="@{/update/{id}(id=${bullhorn.id})}">Update</a>
             <a sec:authorize="isAuthenticated()" class="side-by-side" th:href="@{/delete/{id}(id=${bullhorn.id})}">Delete</a>
         </span>
