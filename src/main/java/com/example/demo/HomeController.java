@@ -66,6 +66,7 @@ public class HomeController {
     @RequestMapping("/detail/{id}")
     public String viewMessage(@PathVariable("id") long id, Model model){
         model.addAttribute("bullhorn", messageRepository.findById(id).get());
+        model.addAttribute("user", userService.getUser());
         return "viewMessage";
     }
 
