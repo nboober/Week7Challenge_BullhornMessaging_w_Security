@@ -41,8 +41,9 @@
                 <p class="blockquote-footer">
 
                     Posted By:
-                    <span th:if="${bullhorn.postedBy == ''}">Anonymous</span>
-                    <span th:unless="${bullhorn.postedBy == ''}" th:text="${bullhorn.postedBy}" ></span>
+<!--                    <span th:if="${bullhorn.postedBy == ''}">Anonymous</span>-->
+<!--                    <span th:unless="${bullhorn.postedBy == ''}" th:text="${bullhorn.postedBy}" ></span>-->
+                    <span th:text="${bullhorn.user.username}"></span>
                     on
                     <span th:text="${bullhorn.postedDate}"></span>
                 </p>
