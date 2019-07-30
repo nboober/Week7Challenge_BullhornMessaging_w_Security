@@ -42,7 +42,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name="role_id"))
     private Collection<Role> roles;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     public Set<Bullhorn> messages;
 
     public User(){

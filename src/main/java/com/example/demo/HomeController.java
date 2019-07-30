@@ -47,15 +47,13 @@ public class HomeController {
     }
 
     @PostMapping("/process")
-    public String processMessage(@Valid Bullhorn bullhorn, @ModelAttribute("user") User user, BindingResult result, Model model){
+    public String processMessage(@Valid Bullhorn bullhorn, BindingResult result, Model model){
         if(result.hasErrors()){
             return "messageForm";
         }
+        model.addAttribute("user", userService.getUser());
+        bullhorn.setUser(userService.getUser());
         messageRepository.save(bullhorn);
-//        Set<Bullhorn> messages = new HashSet<Bullhorn>();
-//        messages.add(bullhorn);
-//        user.setMessages(messages);
-//        userRepository.save(user);
         return "redirect:/";
     }
 
